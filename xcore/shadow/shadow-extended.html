@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>Shadow - Extended</title>
+  <style>
+    body {
+      margin: 40px;
+      background: #F9FAFB;
+      color: #1A1B1E;
+      font-family: "Pretendard Variable", Inter, system-ui, -apple-system,
+        "Segoe UI", Roboto, "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+    }
+
+    th {
+      text-align: left;
+      font-weight: 600;
+      border-bottom: 1px solid #B7BBC2;
+      padding: 10px 8px;
+      color: #3A3D44;
+    }
+
+    td {
+      border-bottom: 1px solid #D9DADE;
+      padding: 16px 8px;
+      vertical-align: middle;
+    }
+
+    /* ✅ 체커보드 배경 */
+    .checker {
+      position: relative;
+      display: inline-block;
+      width: 120px;
+      height: 120px;
+      border-radius: 16px;
+      background:
+        linear-gradient(45deg, #EEEEF0 25%, transparent 25%) -8px 0,
+        linear-gradient(-45deg, #EEEEF0 25%, transparent 25%) -8px 0,
+        linear-gradient(45deg, transparent 75%, #EEEEF0 75%) -8px 0,
+        linear-gradient(-45deg, transparent 75%, #EEEEF0 75%) -8px 0;
+      background-size: 16px 16px;
+      overflow: hidden;
+    }
+
+    /* ✅ 내부 박스 + 그림자 */
+    .checker::after {
+      content: "";
+      position: absolute;
+      width: 56px;
+      height: 56px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff; /* 완전 불투명 박스 */
+      border-radius: 8px;
+      box-shadow: var(--shadow, 0 6px 10px rgba(0, 0, 0, 0.2));
+    }
+    /*
+    tr:hover {
+      background: #EEEEF0;
+    }
+    */
+  </style>
+</head>
+
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Preview</th>
+        <th>Opacity</th>
+        <th>Usage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="checker" style="--shadow: 0 8px 12px rgba(0,0,0,0.04);"></span></td>
+        <td>4%</td>
+        <td>Hairline border 형태의 아주 얕은 shadow</td>
+      </tr>
+      <tr>
+        <td><span class="checker" style="--shadow: 0 10px 16px rgba(0,0,0,0.08);"></span></td>
+        <td>8%</td>
+        <td>Card / chip 같은 subtle surface</td>
+      </tr>
+      <tr>
+        <td><span class="checker" style="--shadow: 0 14px 24px rgba(0,0,0,0.12);"></span></td>
+        <td>12%</td>
+        <td>Small elevation – hover feedback</td>
+      </tr>
+      <tr>
+        <td><span class="checker" style="--shadow: 0 14px 24px rgba(0,0,0,0.16);"></span></td>
+        <td>16%</td>
+        <td>버튼 active or focus 상태 강조</td>
+      </tr>
+      <tr>
+        <td><span class="checker" style="--shadow: 0 14px 24px rgba(0,0,0,0.24);"></span></td>
+        <td>24%</td>
+        <td>Floating layer 기본 shadow</td>
+      </tr>
+      <tr>
+        <td><span class="checker" style="--shadow: 0 14px 24px rgba(0,0,0,0.32);"></span></td>
+        <td>32%</td>
+        <td>Modal / Sheet base</td>
+      </tr>
+      <tr>
+        <td><span class="checker" style="--shadow: 0 14px 24px rgba(0,0,0,0.48);"></span></td>
+        <td>48%</td>
+        <td>높은 elevation / Alert base</td>
+      </tr>
+      <tr>
+        <td><span class="checker" style="--shadow: 0 14px 24px rgba(0,0,0,0.56);"></span></td>
+        <td>56%</td>
+        <td>Depth max / System layer backdrop</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

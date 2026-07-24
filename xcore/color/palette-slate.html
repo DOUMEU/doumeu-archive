@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <title>Color Palette - Slate</title>
+  <style>
+    body {
+      font-family: "Pretendard Variable", Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+      margin: 40px;
+      color: #1A1B1E;
+      background: #F9FAFB;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 24px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 16px;
+      line-height: 1.5;
+      margin: 40px 0;
+    }
+
+    thead th {
+      text-align: left;
+      border-bottom: 1px solid #B7BBC2;
+      padding: 10px 8px;
+    }
+
+    tbody td {
+      border-bottom: 1px solid #D9DADE;
+      padding: 12px 8px;
+      vertical-align: center;
+    }
+
+    code {
+      font-family: "Pretendard Variable", Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+      font-size: 14px;
+    }
+
+    code.copy {
+      background: #D9DADE;
+      padding: 4px 8px;
+      border-radius: 8px;
+      font-family: "Pretendard Variable", Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+      font-size: 14px;
+    }
+
+    /* 복사 버튼 */
+    .copy-btn {
+      margin-left: 4px;
+      border: none;
+      background: transparent;
+      padding-bottom: 4px;
+      cursor: pointer;
+      vertical-align: middle;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .copy-btn svg {
+      width: 20px;
+      height: 20px;
+      fill: #727885;
+      transition: fill .2s;
+    }
+
+    .copy-btn:hover svg {
+      fill: #1A1B1E;
+    }
+
+    .stack {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      /* ← 여기만 바꾸면 간격 변경 */
+    }
+
+    .stack code {
+      /* 코드 줄 공통 스타일(선택) */
+      font-family: "Pretendard Variable", Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+      font-size: 14px;
+    }
+
+    :root {
+      color-scheme: light dark;
+    }
+
+    .palette {
+      font-family: "Pretendard Variable", Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+    }
+
+    .palette__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .palette__title {
+      margin: 0;
+      font-size: 1.125rem;
+      font-weight: 600;
+    }
+
+    .palette__nav a {
+      text-decoration: underline;
+    }
+
+    .palette__nav a+span {
+      margin: 0 .5ch;
+      opacity: .5;
+    }
+
+    .palette__table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .palette__table th,
+    .palette__table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid color-mix(in oklab, CanvasText 20%, transparent);
+      text-align: left;
+    }
+
+    .swatch {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: var(--c);
+      box-shadow: inset 0 0 0 1px color-mix(in oklab, CanvasText 15%, transparent);
+    }
+  </style>
+</head>
+
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Swatch</th>
+        <th>Number</th>
+        <th>Hex Code</th>
+        <th>Element</th>
+        <th>Usage</th>
+        <th>State</th>
+        <th>Mode</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="swatch" style="--c:#f8fafc"></span></td>
+        <td>50</td>
+        <td>#f8fafc</td>
+        <td>카드 / 시트 BG</td>
+        <td>가장 밝은 배경</td>
+        <td>기본</td>
+        <td>Light</td>
+      </tr>
+      <tr>
+        <td><span class="swatch" style="--c:#f1f5f9"></span></td>
+        <td>100</td>
+        <td>#f1f5f9</td>
+        <td>페이지 BG</td>
+        <td>일반 앱 / 웹 기본 배경</td>
+        <td>기본</td>
+        <td>Light</td>
+      </tr>
+      <tr>
+        <td><span class="swatch" style="--c:#e2e8f0"></span></td>
+        <td>200</td>
+        <td>#e2e8f0</td>
+        <td>구분용 카드 / 섹션 BG</td>
+        <td>섹션 구분 배경</td>
+        <td>기본</td>
+        <td>Both</td>
+      </tr>
+      <tr>
+        <td><span class="swatch" style="--c:#cad5e2"></span></td>
+        <td>300</td>
+        <td>#cad5e2</td>
+        <td>버튼 / 입력 BG</td>
+        <td>비활성 상태</td>
+        <td>Disabled</td>
+        <td>Both</td>
+      </tr>
+      <tr>
+        <td><span class="swatch" style="--c:#90a1b9"></span></td>
+        <td>400</td>
+        <td>#90a1b9</td>
+        <td>텍스트/아이콘</td>
+        <td>다크에서 메인 강조 톤</td>
+        <td>강조</td>
+        <td>Dark</td>
+      </tr>
+      <tr>
+        <td><span class="swatch" style="--c:#62748e"></span></td>
+        <td>500</td>
+        <td>#62748e</td>
+        <td>본문 텍스트 / 아이콘</td>
+        <td>레드 기반 주요 톤</td>
+        <td>기본</td>
+        <td>Both</td>
+      </tr>
+      <tr>
+        <td><span class="swatch" style="--c:#45556c"></span></td>
+        <td>600</td>
+        <td>#45556c</td>
+        <td>본문 / 중요 텍스트</td>
+        <td>높은 대비 필요 시</td>
+        <td>강조</td>
+        <td>Light</td>
+      </tr>
+      <tr>
+        <td><span class="swatch" style="--c:#314158"></span></td>
+        <td>700</td>
+        <td>#314158</td>
+        <td>버튼 / 레이블</td>
+        <td>강조된 레이블</td>
+        <td>Hover / Active</td>
+        <td>Both</td>
+      </tr>
+      <tr>
+        <td><span class="swatch" style="--c:#1d293d"></span></td>
+        <td>800</td>
+        <td>#1d293d</td>
+        <td>카드 / 패널 BG</td>
+        <td>다크 모드 배경</td>
+        <td>기본</td>
+        <td>Dark</td>
+      </tr>
+      <tr>
+        <td><span class="swatch" style="--c:#0f172b"></span></td>
+        <td>900</td>
+        <td>#0f172b</td>
+        <td>모달 / 다이얼로그 BG</td>
+        <td>중간 어둠 배경</td>
+        <td>기본</td>
+        <td>Dark</td>
+      </tr>
+      <tr>
+        <td><span class="swatch" style="--c:#020618"></span></td>
+        <td>950</td>
+        <td>#020618</td>
+        <td>오버레이 / 스크림</td>
+        <td>최상위 대비</td>
+        <td>Dim</td>
+        <td>Dark</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+
+<script>
+  // 버튼 생성 함수
+  function createCopyBtn() {
+    const btn = document.createElement('button');
+    btn.className = 'copy-btn';
+    btn.type = 'button';
+    btn.setAttribute('aria-label', 'HEX 복사');
+    btn.title = 'HEX 복사';
+    btn.innerHTML = `
+      <svg class="icon-copy" viewBox="0 0 24 24">
+        <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 
+        0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 
+        2-.9 2-2V7c0-1.1-.9-2-2-2zm0 
+        16H8V7h11v14z"/>
+      </svg>`;
+    return btn;
+  }
+
+  // 1) Hex Code 컬럼만 변환 (3번째 셀)
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('tbody tr').forEach(tr => {
+      const hexTd = tr.cells[2]; // 0: Color, 1: Number, 2: Hex Code
+      if (!hexTd) return;
+
+      const raw = hexTd.textContent.trim();
+      if (!raw) return;
+
+      // HEX 정규화 (# 없으면 붙임)
+      const match = raw.match(/^#?[0-9a-fA-F]{6}$/);
+      if (!match) return;
+
+      const hex = raw.startsWith('#') ? raw : ('#' + raw);
+
+      // 내용 초기화 후 code + 버튼 삽입
+      hexTd.textContent = '';
+      const code = document.createElement('code');
+      code.className = 'copy';
+      code.textContent = hex;
+      hexTd.appendChild(code);
+      hexTd.appendChild(createCopyBtn());
+    });
+  });
+
+  // 2) 클릭 시 복사 + 체크 아이콘 피드백
+  document.addEventListener('click', async (e) => {
+    const btn = e.target.closest('.copy-btn');
+    if (!btn) return;
+
+    const codeEl = btn.previousElementSibling; // <code.copy>
+    const text = codeEl?.textContent?.trim() || '';
+
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch (err) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      ta.remove();
+    }
+
+    // 체크 아이콘으로 잠시 변경
+    btn.innerHTML = `
+      <svg class="icon-check" viewBox="0 0 24 24">
+        <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 
+        12 12 12-5.37 12-12S18.63 0 12 0zm-2 
+        17.2l-4.2-4.2 1.4-1.4L10 14.4l6.8-6.8 
+        1.4 1.4-8.2 8.2z"/>
+      </svg>
+    `;
+    setTimeout(() => {
+      btn.innerHTML = `
+        <svg class="icon-copy" viewBox="0 0 24 24">
+          <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 
+          0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 
+          2-.9 2-2V7c0-1.1-.9-2-2-2zm0 
+          16H8V7h11v14z"/>
+        </svg>
+      `;
+    }, 1200);
+  });
+</script>
+
+
+
+
+</html>

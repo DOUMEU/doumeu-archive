@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <title>Typography Scale - Label</title>
+  <style>
+    body {
+      font-family: "Pretendard Variable", Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+      margin: 40px;
+      color: #1A1B1E;
+      background: #F9FAFB;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 24px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 16px;
+      line-height: 1.5;
+      margin: 40px 0;
+    }
+
+    thead th {
+      text-align: left;
+      border-bottom: 1px solid #B7BBC2;
+      padding: 10px 8px;
+    }
+
+    tbody td {
+      border-bottom: 1px solid #D9DADE;
+      padding: 24px 8px;
+      vertical-align: top;
+    }
+
+    code {
+      font-family: "Pretendard Variable", Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+      font-size: 14px;
+    }
+
+    code .copy {
+      background: #D9DADE;
+      padding: 4px 8px;
+      border-radius: 8px;
+      font-family: "Pretendard Variable", Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+      font-size: 14px;
+    }
+
+    /* 복사 버튼 */
+    .copy-btn {
+      margin-left: 4px;
+      border: none;
+      background: transparent;
+      padding-bottom: 4px;
+      cursor: pointer;
+      vertical-align: middle;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .copy-btn svg {
+      width: 20px;
+      height: 20px;
+      fill: #727885;
+      transition: fill .2s;
+    }
+
+    .copy-btn:hover svg {
+      fill: #1A1B1E;
+    }
+
+    .stack {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      /* ← 여기만 바꾸면 간격 변경 */
+    }
+
+    .stack code {
+      /* 코드 줄 공통 스타일(선택) */
+      font-family: "Pretendard Variable", Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>class</th>
+        <th>style</th>
+        <th>min(모바일)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="stack">
+            <code>역활명 : label-sm</code>
+            <!-- <code>토큰명 : <span class="copy">--fs-11</span></code> -->
+          </div>
+        </td>
+        <td>
+          <div class="stack">
+            <code>font-size: 11px ( 0.6875rem )</code>
+            <code>line-height: 1.2 or 1.3 ( 120% or 130% )</code>
+          </div>
+        </td>
+        <td>
+          <div class="stack">
+            <code>-</code>
+            <code>-</code>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stack">
+            <code>역활명 : label-md</code>
+            <!-- <code>토큰명 : <span class="copy">--fs-12</span></code> -->
+          </div>
+        </td>
+        <td>
+          <div class="stack">
+            <code>font-size: 12px ( 0.75rem )</code>
+            <code>line-height: 1.2 or 1.3 ( 120% or 130% )</code>
+          </div>
+        </td>
+        <td>
+          <div class="stack">
+            <code>font-size: 11 or 12px ( 0.6875rem or 0.6875rem )</code>
+            <code>line-height: 1.2 or 1.3 ( 120% or 130% )</code>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stack">
+            <code>역활명 : label-lg</code>
+            <!-- <code>토큰명 : <span class="copy">--fs-13</span></code> -->
+          </div>
+        </td>
+        <td>
+          <div class="stack">
+            <code>font-size: 13px ( 0.8125rem )</code>
+            <code>line-height: 1.2 or 1.3 ( 120% or 130% )</code>
+          </div>
+        </td>
+        <td>
+          <div class="stack">
+            <code>font-size: 11 or 12px ( 0.6875rem or 0.6875rem )</code>
+            <code>line-height: 1.2 or 1.3 ( 120% or 130% )</code>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stack">
+            <code>역활명 : label-xlg</code>
+            <!-- <code>토큰명 : <span class="copy">--fs-14</span></code> -->
+          </div>
+        </td>
+        <td>
+          <div class="stack">
+            <code>font-size: 14px ( 0.875rem )</code>
+            <code>line-height: 1.2 or 1.3 ( 120% or 130% )</code>
+          </div>
+        </td>
+        <td>
+          <div class="stack">
+            <code>font-size: 11 or 12px ( 0.6875rem or 0.6875rem )</code>
+            <code>line-height: 1.2 or 1.3 ( 120% or 130% )</code>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('code .copy').forEach(span => {
+      const btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.type = 'button';
+      btn.setAttribute('aria-label', '코드 복사');
+      btn.title = '코드 복사';
+
+      // 기본 복사 아이콘 (문서 2장)
+      btn.innerHTML = `
+      <svg class="icon-copy" viewBox="0 0 24 24">
+        <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 
+        0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 
+        2-.9 2-2V7c0-1.1-.9-2-2-2zm0 
+        16H8V7h11v14z"/>
+      </svg>
+    `;
+      span.after(btn);
+    });
+  });
+
+  document.addEventListener('click', async (e) => {
+    const btn = e.target.closest('.copy-btn');
+    if (!btn) return;
+
+    const target = btn.previousElementSibling;
+    const text = target?.textContent?.trim() || '';
+
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch (err) {
+      // fallback
+      const ta = document.createElement('textarea');
+      ta.value = text; document.body.appendChild(ta);
+      ta.select(); document.execCommand('copy'); ta.remove();
+    }
+
+    // ✅ 성공 시 GitHub 스타일 체크 아이콘으로 변경
+    btn.innerHTML = `
+    <svg class="icon-check" viewBox="0 0 24 24">
+      <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 
+      12 12 12-5.37 12-12S18.63 0 12 0zm-2 
+      17.2l-4.2-4.2 1.4-1.4L10 14.4l6.8-6.8 
+      1.4 1.4-8.2 8.2z"/>
+    </svg>
+  `;
+
+    // 1.2초 뒤 다시 복사 아이콘으로 복귀
+    setTimeout(() => {
+      btn.innerHTML = `
+      <svg class="icon-copy" viewBox="0 0 24 24">
+        <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 
+        0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 
+        2-.9 2-2V7c0-1.1-.9-2-2-2zm0 
+        16H8V7h11v14z"/>
+      </svg>
+    `;
+    }, 1200);
+  });
+</script>
+
+
+
+</html>

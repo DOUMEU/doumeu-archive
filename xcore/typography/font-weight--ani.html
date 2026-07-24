@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Typography Variable Loop</title>
+
+  <!-- Variable Fonts (안전한 Google Fonts 사용) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#f3f4f6; --text:#0f1115;
+      --gap: clamp(16px, 3vw, 40px);
+      --size: clamp(32px, 10vw, 120px);
+      --delay-step: .12s;                 /* 글자별 딜레이 간격 */
+      --dur: 4s;                           /* 애니메이션 길이 */
+      --ease: cubic-bezier(.2,.6,.2,1);
+    }
+
+    *{ box-sizing:border-box }
+    html,body{ height:100% }
+    body{
+      margin:0; background:var(--bg); color:var(--text);
+      display:grid; place-items:center; /* padding:80px 120px; */
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    .wrap{
+      display:flex; align-items:center; gap:var(--gap);
+      flex-wrap:wrap; justify-content:center;
+    }
+
+    /* 문구 블록 */
+    .variable{
+      font-size: var(--size);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+
+    /* 폰트 지정 */
+    .text{ font-family: "Pretendard Variable", Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", "Apple SD Gothic Neo", sans-serif; }
+
+    /* 글자 단위 애니메이션 지정 */
+    .variable span{
+      display:inline-block;
+      animation: weight-loop var(--dur) var(--ease) infinite both;
+      animation-delay: calc((var(--idx, 0)) * var(--delay-step));
+      will-change: font-weight;
+    }
+
+    /* 100 → 900 → 100 루프 (양방향) */
+    @keyframes weight-loop{
+      0%   { font-weight: 100; }
+      50%  { font-weight: 900; }
+      100% { font-weight: 100; }
+    }
+
+    /* 모션 최소화 환경 */
+    @media (prefers-reduced-motion: reduce){
+      .variable span{ animation: none; font-weight: 600; }
+    }
+
+    /* 화살표 스타일 */
+    .arrow{
+      font-size: calc(var(--size) * .6);
+      opacity:.6;
+      transform: translateY(6%);
+      user-select:none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+    <h1 class="variable text" data-split>Typography</h1>
+  </div>
+
+  <script>
+    // 텍스트를 글자 단위 <span style="--idx:n">로 분해
+    function splitToSpans(el){
+      const text = el.textContent;
+      el.textContent = '';
+      Array.from(text).forEach((ch, i) => {
+        const span = document.createElement('span');
+        span.style.setProperty('--idx', i);
+        // 공백도 보존
+        span.innerHTML = ch === ' ' ? '&nbsp;' : ch;
+        el.appendChild(span);
+      });
+    }
+    document.querySelectorAll('[data-split]').forEach(splitToSpans);
+  </script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <title>Color Transparent - Base</title>
+  <style>
+    /* ===== 기본 설정 ===== */
+    body {
+      margin: 40px;
+      background: #F9FAFB;
+      color: #1A1B1E;
+      font-family: "Pretendard Variable", Inter, system-ui, -apple-system,
+        "Segoe UI", Roboto, "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    /*
+    h1 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+    */
+
+    /* ===== 테이블 ===== */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    thead th {
+      text-align: left;
+      font-weight: 600;
+      border-bottom: 1px solid #B7BBC2;
+      padding: 10px 8px;
+    }
+
+    tbody td {
+      border-bottom: 1px solid #D9DADE;
+      padding: 12px 8px;
+      vertical-align: middle;
+    }
+
+
+    /* ✅ 체크 패턴 + 투명도 표시 */
+    .swatch {
+      display: inline-block;
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      background:
+        linear-gradient(45deg, #ccc 25%, transparent 25%) -8px 0,
+        linear-gradient(-45deg, #ccc 25%, transparent 25%) -8px 0,
+        linear-gradient(45deg, transparent 75%, #ccc 75%) -8px 0,
+        linear-gradient(-45deg, transparent 75%, #ccc 75%) -8px 0;
+      background-size: 16px 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* ✅ 실제 색상 오버레이 */
+    .swatch::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: var(--overlay, rgba(0, 0, 0, 0.1));
+    }
+
+    /* 행 hover 시 시각적 피드백 
+    tbody tr:hover {
+      background: #EEEEF0;
+    }
+    */
+  </style>
+</head>
+
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Swatch</th>
+        <th>Value</th>
+        <th>Usage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="swatch" style="--overlay: rgba(0,0,0,0.05);"></span></td>
+        <td>5%</td>
+        <td>Divider / Border subtle</td>
+      </tr>
+      <tr>
+        <td><span class="swatch" style="--overlay: rgba(0,0,0,0.10);"></span></td>
+        <td>10%</td>
+        <td>Hover BG / Outline</td>
+      </tr>
+      <tr>
+        <td><span class="swatch" style="--overlay: rgba(0,0,0,0.15);"></span></td>
+        <td>15%</td>
+        <td>Border strong / Icon hover</td>
+      </tr>
+      <tr>
+        <td><span class="swatch" style="--overlay: rgba(0,0,0,0.20);"></span></td>
+        <td>20%</td>
+        <td>Disabled / Subtle overlay</td>
+      </tr>
+      <tr>
+        <td><span class="swatch" style="--overlay: rgba(0,0,0,0.25);"></span></td>
+        <td>25%</td>
+        <td>Overlay light</td>
+      </tr>
+      <tr>
+        <td><span class="swatch" style="--overlay: rgba(0,0,0,0.30);"></span></td>
+        <td>30%</td>
+        <td>Overlay base / Scrim light</td>
+      </tr>
+      <tr>
+        <td><span class="swatch" style="--overlay: rgba(0,0,0,0.40);"></span></td>
+        <td>40%</td>
+        <td>Overlay medium</td>
+      </tr>
+      <tr>
+        <td><span class="swatch" style="--overlay: rgba(0,0,0,0.50);"></span></td>
+        <td>50%</td>
+        <td>Modal scrim / Glass strong</td>
+      </tr>
+      <tr>
+        <td><span class="swatch" style="--overlay: rgba(0,0,0,0.60);"></span></td>
+        <td>60%</td>
+        <td>Backdrop blur base</td>
+      </tr>
+      <tr>
+        <td><span class="swatch" style="--overlay: rgba(0,0,0,0.70);"></span></td>
+        <td>70%</td>
+        <td>Dim overlay / Alert BG</td>
+      </tr>
+      <tr>
+        <td><span class="swatch" style="--overlay: rgba(0,0,0,0.80);"></span></td>
+        <td>80%</td>
+        <td>Fullscreen scrim</td>
+      </tr>
+      <tr>
+        <td><span class="swatch" style="--overlay: rgba(0,0,0,0.90);"></span></td>
+        <td>90%</td>
+        <td>Loading backdrop / Blur mask</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+
+</html>
